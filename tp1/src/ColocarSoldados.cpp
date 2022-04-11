@@ -30,11 +30,11 @@ int definirFilas(char letra){
 	return fila;
 }
 
-int pedirFila(int num){
+int pedirFila(){
 	char letra;
 	int fila;
 	do {
-		cout << "\nIngrese la fila de su soldado numero "<< num << ": ";
+		cout << "\nIngrese la fila: ";
 		cin >> letra;
 		 fila = definirFilas(letra);
 		//en caso de que el ingreso sea invalido, definirFilas devolvera 10
@@ -46,10 +46,10 @@ int pedirFila(int num){
 	return fila;
 }
 
-int pedirColumna(int num){
+int pedirColumna(){
 	int col;
 	do {
-		cout << "\nIngrese la columna de su soldado numero "<< num << ": ";
+		cout << "Ingrese la columna: ";
 		cin >> col;
 		if (col >= 11){
 			cout << "\nLa columna debe ser un numero desde el '1' al '10'"<< endl;
@@ -69,26 +69,36 @@ bool verificarPosicionSoldados(Casillero tablero1[Alto][Ancho], Casillero tabler
 void colocarSoldados(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][Ancho], Soldados soldados1[3], Soldados soldados2[3]){
 	cout << "\nIngresar la posicion de los soldados del primer jugador" << endl;
 	for (int i = 1; i < 4; ++i){
-		int fil = pedirFila(i);
-		int col = pedirColumna(i) - 1;
+		cout << "\nIngrese el casillero del soldado nuemro " << i;
+		int fil = pedirFila();
+		int col = pedirColumna() - 1;
 		soldados1[i-1].fila = fil;
 		soldados1[i-1].columna = col;
-		tablero1[fil][col].estado = "Soldado";
+		soldados1[i-1].estado = 'V'; // V significa que el soldado esta vivo
+		tablero1[fil][col].estado = 'S'; // S represetna que ahi hay un soldado
 		if (verificarPosicionSoldados(tablero1, tablero2, fil, col) == true){
-			cout << " \n Esa posicion era utilizada por un soldado enemigo, ambos moriran y la celda quedara inactiva" << endl;
-			tablero1[fil][col].estado = "Inactivo";
+			cout << " \nEsa posicion era utilizada por un soldado enemigo, ambos moriran y la celda quedara inactiva" << endl;
+			soldados1[i-1].estado = 'M'; // M representa los soldados muertos
+			soldados2[i-1].estado = 'M';
+			tablero1[fil][col].estado = 'X'; //x representa el inactivo
+			tablero2[fil][col].estado = 'X';
 		}
 	}
 	cout << "\nIngresar la posicion de los soldados del segundo jugador" << endl;
 	for (int i = 1; i < 4; ++i){
-		int fil = pedirFila(i);
-		int col = pedirColumna(i) - 1;
+		cout << "\nIngrese el casillero del soldado nuemro " << i;
+		int fil = pedirFila();
+		int col = pedirColumna() - 1;
 		soldados2[i-1].fila = fil;
 		soldados2[i-1].columna = col;
-		tablero2[fil][col].estado = "Soldado";
+		soldados2[i-1].estado = 'V'; // V significa que el soldado esta vivo
+		tablero2[fil][col].estado = 'S'; // S represetna que ahi hay un soldado
 		if (verificarPosicionSoldados(tablero1, tablero2, fil, col) == true){
 			cout << " \nEsa posicion era utilizada por un soldado enemigo, ambos moriran y la celda quedara inactiva" << endl;
-			tablero2[fil][col].estado = "Inactivo";
+			soldados1[i-1].estado = 'M';
+			soldados2[i-1].estado = 'M'; // M representa los soldados muertos
+			tablero1[fil][col].estado = 'X';
+			tablero2[fil][col].estado = 'X'; //x representa el inactivo
 		}
 	}
 }

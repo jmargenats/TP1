@@ -13,7 +13,7 @@
 #include "inicializacionTablero.h"
 
 //le muestra el tablero inicial al usuario
-void imprimirTableroInicial(Casillero tablero[Alto][Ancho], int num);
+void imprimirTablero(Casillero tablero[Alto][Ancho], int num);
 
 
 #endif /* MUESTRATABLERO_H_ */

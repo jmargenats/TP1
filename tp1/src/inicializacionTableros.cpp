@@ -34,7 +34,7 @@ void inicializarTablero(Casillero tablero[Alto][Ancho]){
 		for(int j = 0; j < Ancho; ++j){
 			tablero[i][j].letra = letra;
 			tablero[i][j].numero = j+1;
-			tablero[i][j].estado = "desconocido";
+			tablero[i][j].estado = ' ';
 		}
 	}
 }

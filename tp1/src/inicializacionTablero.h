@@ -16,12 +16,13 @@ const static int Alto = 10;
 struct Casillero{
 	char letra;
 	int numero;
-	std::string estado;
+	char estado;
 };
 
 struct Soldados{
 	int fila;
 	int columna;
+	char estado;
 };
 
 //Le asigna la letra a los casilleros para que sea mas entendible para el usuario
