@@ -18,4 +18,7 @@ void concretarAtaque(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][A
 //le pide al usuario las coordinadas del ataque y llama la funcion para verificar.
 void pedirAtaque(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][Ancho], Soldados soldados[3]);
 
+//Se asegura de matar el soldado correcto (1, 2 o 3)
+void matarSoldadoCorrecto(Soldados soldados[3], int fil, int col);
+
 #endif /* ATACAR_H_ */

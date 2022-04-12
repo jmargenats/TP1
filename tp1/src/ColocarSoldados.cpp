@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include "inicializacionTablero.h"
+#include "atacar.h"
 using namespace std;
 
 
@@ -79,7 +80,7 @@ void colocarSoldados(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][A
 		if (verificarPosicionSoldados(tablero1, tablero2, fil, col) == true){
 			cout << " \nEsa posicion era utilizada por un soldado enemigo, ambos moriran y la celda quedara inactiva" << endl;
 			soldados1[i-1].estado = 'M'; // M representa los soldados muertos
-			soldados2[i-1].estado = 'M';
+			matarSoldadoCorrecto(soldados2, fil, col);
 			tablero1[fil][col].estado = 'X'; //x representa el inactivo
 			tablero2[fil][col].estado = 'X';
 		}
@@ -95,7 +96,7 @@ void colocarSoldados(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][A
 		tablero2[fil][col].estado = 'S'; // S represetna que ahi hay un soldado
 		if (verificarPosicionSoldados(tablero1, tablero2, fil, col) == true){
 			cout << " \nEsa posicion era utilizada por un soldado enemigo, ambos moriran y la celda quedara inactiva" << endl;
-			soldados1[i-1].estado = 'M';
+			matarSoldadoCorrecto(soldados1, fil, col);
 			soldados2[i-1].estado = 'M'; // M representa los soldados muertos
 			tablero1[fil][col].estado = 'X';
 			tablero2[fil][col].estado = 'X'; //x representa el inactivo
