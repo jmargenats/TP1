@@ -19,10 +19,10 @@ int movimientoVertical();
 int movimientoHorizontal();
 
 //dependiendo del ingreso del ususario posiciona el ususario
-void posicionarSoldado(Casillero tablero[Alto][Ancho], Soldados soldados[3], int vertical, int horizontal, int numSoldado);
+void posicionarSoldado(Casillero tablero[ALTO][ANCHO], Soldados soldados[SOLDADOS], int vertical, int horizontal, int numSoldado);
 
 //llama al resto de las funciones para concretar el movimiento
-void Movimiento(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][Ancho], Soldados soldados[3], int numSoldado);
+void Movimiento(Casillero tablero1[ALTO][ANCHO], Casillero tablero2[ALTO][ANCHO], Soldados soldados[SOLDADOS], int numSoldado, int numJugador);
 
 
 #endif /* MOVIMIENTO_H_ */

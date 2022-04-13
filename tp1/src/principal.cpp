@@ -17,8 +17,10 @@ using namespace std;
 
 
 int main (){
-	Casillero tablero1[Alto][Ancho], tablero2[Alto][Ancho];
-	Soldados soldados1[3], soldados2[3];
+	Casillero tablero1[ALTO][ANCHO], tablero2[ALTO][ANCHO];
+	Soldados soldados1[SOLDADOS], soldados2[SOLDADOS];
+	string archivoTurnos1 = "texto/salida1.txt";
+	string archivoTurnos2 = "texto/salida2.txt";
 	inicializarTablero(tablero1);
 	inicializarTablero(tablero2);
 	imprimirTablero(tablero1, 1);
@@ -26,7 +28,7 @@ int main (){
 	colocarSoldados(tablero1, tablero2, soldados1, soldados2);
 	imprimirTablero(tablero1, 1);
 	imprimirTablero(tablero2, 2);
-	turnos( tablero1,  tablero2,  soldados1,  soldados2);
+	turnos( tablero1,  tablero2,  soldados1,  soldados2, archivoTurnos1, archivoTurnos2);
 	return 0;
 }
 

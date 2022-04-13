@@ -25,47 +25,68 @@ int movimientoHorizontal(){
 	return horizontal;
 }
 
-void posicionarSoldado(Casillero tablero[Alto][Ancho], Soldados soldados[3], int vertical, int horizontal, int numSoldado){
+void posicionarSoldado(Casillero tablero[ALTO][ANCHO], Soldados soldados[SOLDADOS], int vertical, int horizontal, int numSoldado){
 	switch (vertical) {
+	//el jugador se mueve hacia adelante
 		case 1:
 			tablero[soldados[numSoldado].fila][soldados[numSoldado].columna].estado = ' ';
-			tablero[soldados[numSoldado].fila + 1][soldados[numSoldado].columna].estado = 'S';
-			++soldados[numSoldado].fila;
+			--soldados[numSoldado].fila;
+			tablero[soldados[numSoldado].fila][soldados[numSoldado].columna].estado = 'S';
 			break;
+
+			//el jugador se mueve hacia atras
 		case 2:
 			tablero[soldados[numSoldado].fila][soldados[numSoldado].columna].estado = ' ';
-			tablero[soldados[numSoldado].fila - 1][soldados[numSoldado].columna].estado = 'S';
-			--soldados[numSoldado].fila;
+			++soldados[numSoldado].fila;
+			tablero[soldados[numSoldado].fila][soldados[numSoldado].columna].estado = 'S';
 			break;
+
+			//el jugador se queda en su lugar
 		case 3:
 			break;
+			//el jugador ingresa un numero incorrecto
 		default:
 			cout << "El numero debe ser 1, 2 o 3" << endl;
 			movimientoVertical();
 	}
 	switch (horizontal) {
+
+		//el jugador se mueve hacia la derecha
 		case 1:
 			tablero[soldados[numSoldado].fila][soldados[numSoldado].columna].estado = ' ';
-			tablero[soldados[numSoldado].fila][soldados[numSoldado].columna + 1].estado = 'S';
 			++soldados[numSoldado].columna;
+			tablero[soldados[numSoldado].fila][soldados[numSoldado].columna].estado = 'S';
 			break;
+
+			//el jugador se mueve hacia la izquierda
 		case 2:
 			tablero[soldados[numSoldado].fila][soldados[numSoldado].columna].estado = ' ';
-			tablero[soldados[numSoldado].fila - 1][soldados[numSoldado].columna - 1].estado = 'S';
 			--soldados[numSoldado].columna;
+			tablero[soldados[numSoldado].fila][soldados[numSoldado].columna].estado = 'S';
 			break;
+
+			//el jugador se queda en el lugar
 		case 3:
 			break;
+
+			//el jugador inngresa un numero incorrecto
 		default:
 			cout << "El numero debe ser 1, 2 o 3" << endl;
 			movimientoHorizontal();
 	}
 }
 
-void Movimiento(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][Ancho], Soldados soldados[3], int numSoldado){
+void Movimiento(Casillero tablero1[ALTO][ANCHO], Casillero tablero2[ALTO][ANCHO], Soldados soldados[SOLDADOS], int numSoldado, int numJugador){
 	int vertical = movimientoVertical();
 	int horizontal = movimientoHorizontal();
-	posicionarSoldado(tablero1, soldados, vertical, horizontal, numSoldado);
+
+	//depende de a que jugador le toque, modifica el tablero correspondiente
+	if (numJugador == 1){
+		posicionarSoldado(tablero1, soldados, vertical, horizontal, numSoldado);
+	} else {
+		posicionarSoldado(tablero2, soldados, vertical, horizontal, numSoldado);
+
+	}
 }
 
 

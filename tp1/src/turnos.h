@@ -13,10 +13,10 @@
 #include "inicializacionTablero.h"
 
 //arregla el contador en caso de iniciar con un soldado muerto
-void arreglarContador(Soldados soldados[3], int contadorSoldados);
+int arreglarContador(Soldados soldados[SOLDADOS], int contadorSoldados);
 
 //llama a las funciones y modifica los estados del tablero y el los soldados.
-void turnos(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][Ancho], Soldados soldados1[3], Soldados soldados2[3]);
+void turnos(Casillero tablero1[ALTO][ANCHO], Casillero tablero2[ALTO][ANCHO], Soldados soldados1[SOLDADOS], Soldados soldados2[SOLDADOS], std::string rutaSalida1, std::string rutaSalida2);
 
 
 

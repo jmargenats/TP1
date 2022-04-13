@@ -22,9 +22,9 @@ int pedirFila();
 int pedirColumna();
 
 //verifica que la posicion de los soldados no sea la misma
-bool verificarPosicionSoldados(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][Ancho], int fila, int columna);
+bool verificarPosicionSoldados(Casillero tablero1[ALTO][ANCHO], Casillero tablero2[ALTO][ANCHO], int fila, int columna);
 
 //coloca los solados en las casillas, y guarda sus posiciones en otra matriz
-void colocarSoldados(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][Ancho],Soldados soldados1[3], Soldados soldados2[3]);
+void colocarSoldados(Casillero tablero1[ALTO][ANCHO], Casillero tablero2[ALTO][ANCHO],Soldados soldados1[SOLDADOS], Soldados soldados2[SOLDADOS]);
 
 #endif /* COLOCARSOLDADOS_H_ */

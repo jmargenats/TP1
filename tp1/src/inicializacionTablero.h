@@ -9,8 +9,9 @@
 #define INICIALIZACIONTABLERO_H_
 
 //constantes del ancho y alto de los tableros
-const static int Ancho = 10;
-const static int Alto = 10;
+const static int ANCHO = 10;
+const static int ALTO = 10;
+const static int SOLDADOS = 3;
 
 //estructura de los casilleros que deben tener la letra y el numero, para indicar cual casillero es, y el estado.
 struct Casillero{
@@ -29,7 +30,7 @@ struct Soldados{
 char asignarLetra(int num);
 
 //Inicializa el tablero poniendole el numero y letra del casillero y el estado (al principio vacio)
-void inicializarTablero(Casillero tablero[Alto][Ancho]);
+void inicializarTablero(Casillero tablero[ALTO][ANCHO]);
 
 
 

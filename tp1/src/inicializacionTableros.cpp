@@ -12,6 +12,8 @@ using namespace std;
 
 char asignarLetra(int num){
 	char letra = 'A';
+
+	// imprime la correspondiente letra en la fila para que el usuario tenga un visual del tablero
 	switch(num){
 		case 0: letra = 'A'; break;
 		case 1: letra = 'B'; break;
@@ -28,10 +30,10 @@ char asignarLetra(int num){
 }
 
 
-void inicializarTablero(Casillero tablero[Alto][Ancho]){
-	for(int i = 0; i < Alto; ++i){
+void inicializarTablero(Casillero tablero[ALTO][ANCHO]){
+	for(int i = 0; i < ALTO; ++i){
 		char letra = asignarLetra(i);
-		for(int j = 0; j < Ancho; ++j){
+		for(int j = 0; j < ANCHO; ++j){
 			tablero[i][j].letra = letra;
 			tablero[i][j].numero = j+1;
 			tablero[i][j].estado = ' ';

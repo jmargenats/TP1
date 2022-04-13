@@ -59,7 +59,7 @@ int pedirColumna(){
 	return col;
 }
 
-bool verificarPosicionSoldados(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][Ancho], int fila, int columna){
+bool verificarPosicionSoldados(Casillero tablero1[ALTO][ANCHO], Casillero tablero2[ALTO][ANCHO], int fila, int columna){
 	if (tablero1[fila][columna].estado == tablero2[fila][columna].estado) {
 		return true;
 	} else {
@@ -67,9 +67,11 @@ bool verificarPosicionSoldados(Casillero tablero1[Alto][Ancho], Casillero tabler
 	}
 }
 
-void colocarSoldados(Casillero tablero1[Alto][Ancho], Casillero tablero2[Alto][Ancho], Soldados soldados1[3], Soldados soldados2[3]){
+void colocarSoldados(Casillero tablero1[ALTO][ANCHO], Casillero tablero2[ALTO][ANCHO], Soldados soldados1[SOLDADOS], Soldados soldados2[SOLDADOS]){
 	cout << "\nIngresar la posicion de los soldados del primer jugador" << endl;
-	for (int i = 1; i < 4; ++i){
+
+	//pide las posiciones de los tres soldados
+	for (int i = 1; i < SOLDADOS + 1; ++i){
 		cout << "\nIngrese el casillero del soldado nuemro " << i;
 		int fil = pedirFila();
 		int col = pedirColumna() - 1;
